@@ -1,0 +1,38 @@
+<DOCTYPE !HTML>
+<html>
+    <head>
+
+    </head>
+    <body>
+        
+        <form action="/insert" method="post">
+            <h1>Inserting new data</h1>
+            <input type="text" placeholder="Name" name="name">
+            <input type="text" placeholder="Rating" name="rating"> 
+            <input type="submit" value="Send Info" id="insert"></input>
+        </form>
+        
+        <form action="/update" method="post">
+            <h1>Updating data</h1>
+            <input type="text" placeholder="Name" name="name">
+            <input type="text" placeholder="Rating" name="rating">
+            <!--<button id="update">Update Info</button>-->
+            <input type="submit" value="Update Info" id="insert"></input>
+       </form>
+
+        
+        <form action="/delete" method="post">
+            <h1>Delete data</h1>
+            <input type="text" placeholder="Name" name="name">
+            <button id="remove">Remove</button>
+        </form>
+
+        <form action="/displayAll" method="post">
+            <h1>Displaying data</h1>
+            <!--<button id="displayAll">Display All</button>-->
+        </form>
+
+        
+    </body>
+
+</html>

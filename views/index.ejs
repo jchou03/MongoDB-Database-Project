@@ -1,0 +1,99 @@
+<DOCTYPE !HTML>
+    <html>
+        <head>
+          <link rel="stylesheet" type="text/css" href="/style.css">
+          <style>
+            body html {
+              padding: 0px;
+              margin: 0px;
+              background-color: #64B6AC;
+            }
+          </style>
+        </head>
+        <body>
+            <form action="/insert" method="post">
+                <h1>Inserting new data</h1>
+                <input type="text" placeholder="Name" name="name">
+                <input type="text" placeholder="Rating" name="rating"> 
+                <input type="submit" value="Send Info" id="insert"></input>
+            </form>
+    
+            <section data-position="insertInfo">
+              <% if(error == "" && insertedYet){ %>
+              <p>The most recently inserted school is: </p>  
+              <ul class="insertInfo">
+                  <li class="insertDisplay">
+                    <span><%= schools[schools.length-1].name %></span>:
+                    <span><%= schools[schools.length-1].rating %></span>
+                  </li>
+                </ul>
+              <%} else if(error != "" && insertedYet){ %>
+                <p>Error: <%= error%> </p>
+              <% } %>
+              </section>
+
+            <form action="/update" method="post">
+                <h1>Updating data</h1>
+                <input type="text" placeholder="Name" name="name">
+                <input type="text" placeholder="Rating" name="rating">
+                <!--<button id="update">Update Info</button>-->
+                <input type="submit" value="Update Info" id="insert"></input>
+           </form>
+
+           <section data-position="updateInfo">
+            <% if(error == "" && updateInfo != null){%>
+              <% if(updateOrInsert == "update"){ %>
+                <p>The most recently updated school is: </p>
+              <% } else { %>
+                <p>The school didn't exist in list already, so added: </p>
+              <% } %>
+            <ul class="updateInfo">
+                <li class="updateDisplay">
+                  <span><%= updateInfo.name %></span>:
+                  <span><%= updateInfo.rating %></span>
+                </li>
+              </ul>
+            <%} else if(error != "" && updateInfo != null){ %>
+              <p>Error: <%= error%> </p>
+            <% } %>
+            </section>
+    
+            <form action="/delete" method="post">
+                <h1>Delete data</h1>
+                <input type="text" placeholder="Name" name="name">
+                <button id="remove">Remove</button>
+            </form>
+
+            <section data-position="deleteInfo">
+              <% if(error == "" && deleteInfo != null){ %>
+              <p>The most recently deleted school is: </p>  
+              <ul class="deleteInfo">
+                  <li class="deleteDisplay">
+                    <span><%= deleteInfo.name %></span>:
+                    <span><%= deleteInfo.rating %></span>
+                  </li>
+                </ul>
+              <%} else if(error != "" && deleteInfo != null){ %>
+                <p>Error: <%= error%> </p>
+              <% } %>
+              </section>
+
+            <form action="/displayAll" method="post">
+                <h1>Displaying data</h1>
+                <!--<button id="displayAll">Display All</button>-->
+            </form>
+
+            <section data-position="displayAll">
+                <ul class="displayAll">
+                  <% for(var i = 0; i < schools.length; i++) {%>
+                  <li class="display">
+                    <span><%= schools[i].name %></span>:
+                    <span><%= schools[i].rating %></span>
+                  </li>
+                  <% } %>
+                </ul>
+              </section>
+
+        </body>
+    
+    </html>

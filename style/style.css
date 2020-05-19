@@ -1,0 +1,30 @@
+body html {
+    padding: 0px;
+    margin: 0px;
+    font-family: monospace;
+}
+
+body{
+    background-color: #FEE9E1;
+}
+
+h1{
+    background-color: #C0FDFB;
+    text-align: center;
+    font-family: monospace;
+}
+
+form{
+    align-self: center;
+}
+
+input{
+    background-color: #64B6AC;
+    border-radius: 2px;
+}
+
+button{
+    border-radius: 2px;
+    border: 3px;
+    border-color: #C0FDFB;
+}
